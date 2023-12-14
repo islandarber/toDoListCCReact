@@ -1,42 +1,321 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background-color: #ebebf9;
+  opacity: 0.8;
+  background-image:  linear-gradient(#e1e1ff 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(90deg, #e1e1ff 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(#e1e1ff 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(90deg, #e1e1ff 1.4000000000000001px, #ebebf9 1.4000000000000001px);
+  background-size: 70px 70px, 70px 70px, 14px 14px, 14px 14px;
+  background-position: -2.8000000000000003px -2.8000000000000003px, -2.8000000000000003px -2.8000000000000003px, -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px;    
+  font-family: 'Schoolbell', cursive;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
   text-align: center;
+  color: #261f56;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.material-symbols-outlined {
+font-variation-settings:
+'FILL' 0,
+'wght' 400,
+'GRAD' 0,
+'opsz' 24
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* CONTAINER FOR ALL */
+.container {
+  box-shadow: 0 0 5px #34506c;
+  width: 100%;
+  max-width: 80%;
+  margin: 3rem auto;
+  padding: 1rem 2rem;    
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ededed;
+}
+
+/* FORM FOR SUBMITTING NEW TASK */
+form {
+display: flex;
+width: 100%;
+gap: 10px;
+justify-content: flex-start;
+align-items: stretch;
+}
+
+#formDiv {
+  display: flex;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+#addBtn {
+  color: rgb(15, 0, 3);
+}
+
+#addBtn:hover {
+  color: rgb(136, 136, 136);
+}
+
+
+#clearBtnDiv {  
+  display: flex;
+  width: 50%;
+  padding-left: 2rem;
+ 
+}
+
+#item { 
+  width: 100%;
+  padding: 0.5rem;
+  margin: 15px 0;
+  border-radius: 1rem;
+  border-style: none;
+  background-color: #fff;
+  font-family: 'Schoolbell', cursive;
+  padding-left: 1rem;
+}
+
+form button {
+  padding: 0.3rem;
+  margin: 15px 0;
+  border-style: none;    
+  background: none;
+  cursor: pointer;
+}
+
+
+/* THE MAIN TASK DIV */
+.taskDiv {
+  list-style: none;
+  padding: 1rem 1rem;
+  display: flex;
+  margin: 0.5rem 0rem;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: #d2d2d2;
+  justify-content: space-between;
+  max-width: 80%;
+  min-width: 80%;
+
+  animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+  opacity: 0;
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+
+  transition: 0.5s;
+}
+
+.taskDiv:hover { 
+  background-color: #bdbbbb;
+
+}
+    
+@keyframes show {
+  100% {
+      opacity: 1;
+      transform: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* FOR BUTTONS IN TASKDIVS */
+#clearBtn, #hideBtn {
+  font-size: 1rem;
+  font-family: 'Schoolbell', cursive;
+  padding: 0rem 1rem;
+  color: #261f56;
+  background-color: rgb(214, 214, 214);
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+
+#clearBtn:hover, #hideBtn:hover {
+  background-color: rgb(161, 159, 159);
+}
+
+
+/* DIVS FOR CHECKBOX CONTROLS */
+.taskCheckboxDiv {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxUncheck, .checkboxCheck {
+  border-radius: 100%;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.checkboxUncheck:hover, .checkboxCheck:hover {
+  background-color: rgb(173, 173, 173);
+}
+
+span.inactiveClass {
+  display: none;
+}
+
+
+.taskDiv h4 { 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* ICONS ON TASK DIVS */
+#binIcon, #editIcon {
+  color: rgb(39, 39, 39);
+  border: 1px grey solid;
+  margin: 0rem;
+  cursor: pointer;
+  border-style: none;
+  padding: 0.1rem;
+  transition: 0.5s;
+}
+
+#icons {
+  padding: 0;
+  margin: 0;
+}
+
+#editIcon:hover { 
+  color: rgb(0, 0, 0);
+  color: rgb(85, 121, 238);
+}
+
+#binIcon:hover {
+  color: rgb(186, 3, 3);
+}
+
+/* Container for all task sections */
+#taskSections {
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+.myListItems, .myCompletedItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.myCompletedItems {
+  opacity: 0.4;
+  transition: 0.5s;
+}
+
+/* TO DO ITEMS TITLE */
+#taskSections h2 {
+  padding-left: 1rem;
+  color: rgb(122, 1, 1);
+  font-size: 2rem;
+  margin-bottom: 0rem;
+}
+
+/* TO DO ITEMS DIV */
+#toDoItemsDiv {
+  width: 50%;
+  margin: 2rem 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  margin-top: 0;
+}
+
+/* COMPLETED ITEMS TITLE */
+#completedItemsDiv h2 {
+  color: rgb(0, 182, 0);
+}
+
+/* COMPLETED ITEMS DIV */
+#completedItemsDiv { 
+  width: 50%;
+  margin: 2rem 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  margin-top: 0;
+}
+
+
+/* THE DONE CLASS */
+.done {
+  text-decoration: line-through;
+}
+
+/* THE HIDDEN CLASS */
+.hide {
+  opacity: 0;
+}
+
+/* RESPONSIVE DESIGN QUERIES */
+
+@media only screen and (max-width: 600px) {
+  #taskSections {
+      flex-direction: column;
+      width: 100%;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  #toDoItemsDiv, #completedItemsDiv {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      margin-top: 2rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  #toDoItemsDiv {
+      margin-top: 0rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  h2 {
+      font-size: 20rem;
+  }
+
+  .myListItems, .myCompletedItems {
+      align-items: center;
+      justify-content: center;
+  }
+
+  .myCompletedItems {
+      margin-bottom: 4rem;
+  }
+  
+
+  .taskDiv {
+      width: auto;
+  }
+
+  form {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      justify-content: stretch;
+  }
+
+  #formDiv, #clearBtnDiv {
+      width: 80%;
+      padding-left: 0;
+  }
+
+  #hideBtn {
+      margin-right: 0;
+  }
+
+  #clearBtnDiv {
+      justify-content: space-around;
+      display: flex;
+      align-items: center;
+      align-self: center;
+  }
 }
