@@ -5,23 +5,23 @@ import DisplayItems from './components/DisplayItems'
 
 function App() {
   const [items, setItems] = useState([])
-  localStorage.setItem('items', JSON.stringify(items));
+  // if (localStorage.getItem('items')) {
+  //   items = JSON.parse(localStorage.getItem('items'))
+  // }
+
+  localStorage.setItem('items', JSON.stringify(items))
 
   return (
-    // <div className="container">
-    //   <Form setTodos={setTodos} />
-    //   <DisplayToDos items={items} setItems={setItems} />
-    // </div>
-
-
-
     <>
       <div className="container">
 
         <h1>Get your Stuff together List 📝</h1>
 
         <Form setItems={setItems}/>
-        <DisplayItems items={items}/>
+        <h1>Incomplete</h1>
+        <DisplayItems items={items} setItems={setItems}/>
+        <h1>Complete</h1>
+        <DisplayItems items={items.filter((item)=> item.done === true)} setItems={setItems}/>
       </div>
 
     </>

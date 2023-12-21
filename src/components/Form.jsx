@@ -1,7 +1,7 @@
 import React from "react";
 import '../App.css'
 
-const Form = (setItems) => {
+const Form = ({setItems}) => {
  
 
  const handleSubmit = (e) => {
@@ -13,6 +13,7 @@ const Form = (setItems) => {
       date: new Date().toLocaleString()
     } 
     setItems((prevStae)=>[...prevStae, newItem]);
+    e.target[0].value = "";	
  }
  
   return (
@@ -27,7 +28,7 @@ const Form = (setItems) => {
 
 <div id="clearBtnDiv">
   <button id="clearBtn">Clear All Tasks</button>
-  <button id="hideBtn" type="button" onclick="hideCompleted()">Hide Completed</button>
+  <button id="hideBtn" type="button">Hide Completed</button>
 
 </div>
 </form>
