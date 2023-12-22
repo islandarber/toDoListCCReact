@@ -33,7 +33,7 @@ function App() {
 
         <Form setToDos={setToDos}/>
         <h1>Incomplete</h1>
-        <DisplayItems ToDos={ToDos} setToDos={setToDos} handleDone={handleDone} handleDelete={handleDelete}/>
+        <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === false)} setToDos={setToDos} handleDone={handleDone} handleDelete={handleDelete}/>
         <h1>Complete</h1>
         <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === true)} setToDos={setToDos}/>
       </div>
