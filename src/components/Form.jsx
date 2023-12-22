@@ -1,7 +1,7 @@
 import React from "react";
 import '../App.css'
 
-const Form = ({setItems}) => {
+const Form = ({setToDos}) => {
  
 
  const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ const Form = ({setItems}) => {
       isDone: false,
       date: new Date().toLocaleString()
     } 
-    setItems((prevStae)=>[...prevStae, newItem]);
+    setToDos((prevStae)=>[...prevStae, newItem]);
     e.target[0].value = "";	
  }
  
