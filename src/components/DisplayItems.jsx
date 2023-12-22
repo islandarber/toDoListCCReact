@@ -1,26 +1,17 @@
 import React from 'react';
 
-const DisplayItems = ({ items, setItems }) => {
-  const handleClick = (index) => {
-    // Create a copy of the items array
-    const updatedItems = [...items];
+const DisplayItems = ({ items, handleDone, handleDelete, handleEdit }) => {
 
-    // Toggle the 'done' property of the clicked item
-    updatedItems[index].done = !updatedItems[index].done;
-
-    // Update the state with the modified items array
-    setItems(updatedItems);
-  };
 
   return (
       <div>
         {items.map((todo, index) => (
           <div className="taskDiv" key={index}>
-            <h4 onClick={() => handleClick(index)}>{todo.title}</h4>
+            <h4>{todo.title}</h4>
             <div id="icons">
               <span
                 id="editIcon"
-                onClick={() => handleDelete(index)}
+                onClick={() => handleEdit(index)}
                 className="material-symbols-outlined"
               >
                 ✏️
@@ -28,7 +19,7 @@ const DisplayItems = ({ items, setItems }) => {
 
               <span
                 id="binIcon"
-                onClick={() => handleDelete(index)}
+                onClick={() => handleDelete(todo.id)}
                 className="material-symbols-outlined"
               >
                 ❌
