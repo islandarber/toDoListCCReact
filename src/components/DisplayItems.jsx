@@ -24,9 +24,9 @@ const DisplayItems = ({ ToDos, handleDone, handleDelete }) => {
   };
 
   return (
-    <div>
+    <div className=''>
       {ToDos.map((todo, index) => (
-        <div className="taskDiv" key={index}>
+        <div className={todo.isDone ? "doneTask" : "taskDiv"} key={index}>
           {editableIndex === index ? (
             <input
               type="text"
