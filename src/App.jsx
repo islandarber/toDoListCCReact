@@ -12,9 +12,15 @@ function App() {
     localStorage.setItem('ToDos', JSON.stringify(ToDos))
   } ,[ToDos])
 
-  const handleDone = (index) => {
-    const updatedItems = [...ToDos];
-    updatedItems[index].isDone = !updatedItems[index].isDone;
+  const handleDone = (id) => {
+    console.log('im clicked');
+    const updatedItems = ToDos.map((item) => {
+      if (item.id === id) {
+        item.isDone = !item.isDone;
+      }
+      return item;
+    })
+    console.log(updatedItems);
     setToDos(updatedItems);
   };
 
@@ -35,7 +41,7 @@ function App() {
         <h1>Incomplete</h1>
         <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === false)} setToDos={setToDos} handleDone={handleDone} handleDelete={handleDelete}/>
         <h1>Complete</h1>
-        <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === true)} setToDos={setToDos}/>
+        <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === true)} setToDos={setToDos} handleDone={handleDone} handleDelete={handleDelete}/>
       </div>
 
     </>
