@@ -1,7 +1,9 @@
 import React from "react";
 import '../App.css'
 
-const Form = ({setToDos}) => {
+const Form = ({setToDos, handleClear}) => {
+
+
  
 
  const handleSubmit = (e) => {
@@ -12,6 +14,10 @@ const Form = ({setToDos}) => {
       isDone: false,
       date: new Date().toLocaleString()
     } 
+    if (e.target[0].value === "") {
+      alert("Please enter a task");
+      return;
+    }
     setToDos((prevStae)=>[...prevStae, newItem]);
     e.target[0].value = "";	
  }
@@ -26,11 +32,6 @@ const Form = ({setToDos}) => {
 
 </div>
 
-<div id="clearBtnDiv">
-  <button id="clearBtn">Clear All Tasks</button>
-  <button id="hideBtn" type="button">Hide Completed</button>
-
-</div>
 </form>
   )
 };
