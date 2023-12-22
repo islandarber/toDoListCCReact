@@ -24,7 +24,7 @@ const DisplayItems = ({ ToDos, handleDone, handleDelete }) => {
   };
 
   return (
-    <div className=''>
+    <div className='tasks'>
       {ToDos.map((todo, index) => (
         <div className={todo.isDone ? "doneTask" : "taskDiv"} key={index}>
           {editableIndex === index ? (
@@ -59,7 +59,7 @@ const DisplayItems = ({ ToDos, handleDone, handleDelete }) => {
 
             <span
               id="binIcon"
-              onClick={() => handleDone(index)}
+              onClick={() => handleDone(todo.id)}
               className="material-symbols-outlined"
             >
               ✔️
