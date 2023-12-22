@@ -1,32 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Form from './components/Form'
 import DisplayItems from './components/DisplayItems'
 
 function App() {
-  const [items, setItems] = useState([])
-  // if (localStorage.getItem('items')) {
-  //   items = JSON.parse(localStorage.getItem('items'))
-  // }
+  const data = localStorage.getItem('ToDos')
+  const [ToDos, setToDos] = useState(data ? JSON.parse(data) : [])
 
-  localStorage.setItem('items', JSON.stringify(items))
+
+  useEffect(() => {
+    localStorage.setItem('ToDos', JSON.stringify(ToDos))
+  } ,[ToDos])
 
   const handleDone = (index) => {
-    const updatedItems = [...items];
+    const updatedItems = [...ToDos];
     updatedItems[index].isDone = !updatedItems[index].isDone;
-    setItems(updatedItems);
+    setToDos(updatedItems);
   };
 
   const handleDelete = (id) => {
-    const updatedItems = items.filter((item) => item.id !== id);
-    setItems(updatedItems);
+    const updatedItems = ToDos.filter((item) => item.id !== id);
+    setToDos(updatedItems);
   };
+  
 
-  const handleEdit = (index) => {
-    const updatedItems = [...items];
-    updatedItems[index].isEditing = !updatedItems[index].isEditing;
-    setItems(updatedItems);
-  };
 
   return (
     <>
@@ -34,11 +31,11 @@ function App() {
 
         <h1>Get your Stuff together List 📝</h1>
 
-        <Form setItems={setItems}/>
+        <Form setToDos={setToDos}/>
         <h1>Incomplete</h1>
-        <DisplayItems items={items} setItems={setItems} handleDone={handleDone} handleDelete={handleDelete} handleEdit={handleEdit}/>
+        <DisplayItems ToDos={ToDos} setToDos={setToDos} handleDone={handleDone} handleDelete={handleDelete}/>
         <h1>Complete</h1>
-        <DisplayItems items={items.filter((item)=> item.isDone === true)} setItems={setItems}/>
+        <DisplayItems ToDos={ToDos.filter((item)=> item.isDone === true)} setToDos={setToDos}/>
       </div>
 
     </>
