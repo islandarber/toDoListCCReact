@@ -82,9 +82,6 @@ function App() {
           <button id="hideBtn" type="button" onClick={handleHide}>
             {hide ? 'Show Completed' : 'Hide Completed'}
           </button>
-          <button id="sortBtn" type="button" onClick={toggleSortOrder}>
-            Toggle Sort Order
-          </button>
         </div>
       </div>
     </>
