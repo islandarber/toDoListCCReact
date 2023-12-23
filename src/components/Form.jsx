@@ -7,11 +7,8 @@ const Form = ({setToDos}) => {
   const [priority, setPriority] = useState("");
   const handleChange = (e) => { 
     setPriority(e.target.value);
-
   }
 
-
- 
 
  const handleSubmit = (e) => {
     e.preventDefault();
