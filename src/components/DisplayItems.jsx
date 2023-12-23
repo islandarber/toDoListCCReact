@@ -1,44 +1,21 @@
 import React, { useState } from 'react';
 
 const DisplayItems = ({ ToDos, handleDone, handleDelete }) => {
-  const [editableIndex, setEditableIndex] = useState(null);
-  const [editableTitle, setEditableTitle] = useState('');
 
-  const startEditing = (index, title) => {
-    setEditableIndex(index);
-    setEditableTitle(title);
-  };
-
-  const handleTitleChange = (e) => {
-    setEditableTitle(e.target.value);
-  };
-
-  const handleEditKeyDown = (e, index) => {
-    if (e.key === 'Enter' || e.key === 'Escape') {
-      // Update the title directly in your logic (replace the following line with your logic)
-      if (e.key === 'Enter') {
-        console.log(`Editing item at index ${index} with new title: ${editableTitle}`);
-      }
-      setEditableIndex(null);
-    }
-  };
 
   return (
     <div className='tasks'>
       {ToDos.map((todo, index) => (
-        <div className={todo.isDone ? "doneTask" : "taskDiv"} key={index}>
-          {editableIndex === index ? (
-            <input
-              type="text"
-              value={editableTitle}
-              onChange={handleTitleChange}
-              onKeyDown={(e) => handleEditKeyDown(e, index)}
-            />
-          ) : (
-            <h4 onClick={() => startEditing(index, todo.title)}>
-              {todo.title}
-            </h4>
-          )}
+        <div
+        className={todo.isDone ? "doneTask" : "taskDiv"}
+        style={todo.priority === 'low' ? { border: '3px solid green' } : {border: '3px solid red'}}
+        key={index}
+      >
+        <span className='date_task'>{todo.date}</span>
+        <h4 >
+        {todo.title}
+        </h4> <br />
+            
 
           <div id="icons">
             <span
