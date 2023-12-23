@@ -51,16 +51,27 @@ justify-content: flex-start;
 align-items: stretch;
 }
 
-#formDiv {
+form {
   display: flex;
-  width: 50%;
+  justify-content: center;
+  width: 60%;
   padding: 0;
   margin: 0;
   padding-left: 2rem;
 }
 
+#formDiv {
+  display: flex;
+  width:100%;
+  justify-content: space-around;
+}
+
 #addBtn {
-  color: rgb(15, 0, 3);
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 5px #777a7e;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
 }
 
 #addBtn:hover {
@@ -75,15 +86,28 @@ align-items: stretch;
  
 }
 
-#item { 
+.placeholder { 
   width: 100%;
-  padding: 0.5rem;
+  height: auto;
   margin: 15px 0;
   border-radius: 1rem;
   border-style: none;
   background-color: #fff;
   font-family: 'Schoolbell', cursive;
-  padding-left: 1rem;
+  text-align: center;
+}
+
+.low__prior {
+  color: green;
+}
+
+.high__prior {
+  color: red;
+}
+
+.date_task {
+  color: rgb(66, 66, 66);
+  font-size: 0.65rem;
 }
 
 form button {
@@ -104,7 +128,6 @@ form button {
   align-items: center;
   border-radius: 1rem;
   background-color: #d2d2d2;
-  justify-content: space-between;
   max-width: 80%;
   min-width: 80%;
 
@@ -148,6 +171,16 @@ form button {
 
 .doneTask h4 {
   text-decoration: line-through;
+}
+
+.radio_buttons {
+  display: flex;
+  font-size: 0.75rem;
+}
+.radio_buttons label {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
 }
     
 @keyframes show {
