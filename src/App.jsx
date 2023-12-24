@@ -9,6 +9,7 @@ function App() {
   const [hide, setHide] = useState(false);
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
 
+
   useEffect(() => {
     localStorage.setItem('ToDos', JSON.stringify(ToDos));
   }, [ToDos]);
@@ -49,6 +50,8 @@ function App() {
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
   };
 
+
+
   useEffect(() => {
     // Sort the array whenever ToDos or sortOrder changes
     setToDos([...ToDos].sort(sortByPriority));
@@ -66,14 +69,16 @@ function App() {
           handleDone={handleDone}
           handleDelete={handleDelete}
         />
-        <h1>Complete</h1>
         {!hide && (
+          <>
+          <h1>Complete</h1>
           <DisplayItems
             ToDos={ToDos.filter((item) => item.isDone)}
             setToDos={setToDos}
             handleDone={handleDone}
             handleDelete={handleDelete}
           />
+          </>
         )}
         <div id="clearBtnDiv">
           <button id="clearBtn" onClick={handleClear}>
