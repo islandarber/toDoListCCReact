@@ -1,15 +1,25 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import DisplayItems from './components/DisplayItems';
 
 function App() {
-  const data = localStorage.getItem('ToDos');
-  const [ToDos, setToDos] = useState(data ? JSON.parse(data) : []);
+  // Retrieve ToDos from localStorage with error handling
+  let initialToDos = [];
+  try {
+    const data = localStorage.getItem('ToDos');
+    if (data) {
+      initialToDos = JSON.parse(data);
+    }
+  } catch (error) {
+    console.error('Error parsing ToDos from localStorage:', error);
+  }
+
+  const [ToDos, setToDos] = useState(initialToDos);
   const [hide, setHide] = useState(false);
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' for ascending, 'desc' for descending
 
-
+  // Save ToDos to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('ToDos', JSON.stringify(ToDos));
   }, [ToDos]);
@@ -50,13 +60,6 @@ function App() {
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
   };
 
-
-
-  useEffect(() => {
-    // Sort the array whenever ToDos or sortOrder changes
-    setToDos([...ToDos].sort(sortByPriority));
-  }, [ToDos, sortOrder]);
-
   return (
     <>
       <div className="container">
@@ -64,20 +67,20 @@ function App() {
         <Form setToDos={setToDos} handleClear={handleClear} />
         <h1>Incomplete</h1>
         <DisplayItems
-          ToDos={ToDos.filter((item) => !item.isDone)}
+          ToDos={ToDos.filter((item) => !item.isDone).sort(sortByPriority)}
           setToDos={setToDos}
           handleDone={handleDone}
           handleDelete={handleDelete}
         />
         {!hide && (
           <>
-          <h1>Complete</h1>
-          <DisplayItems
-            ToDos={ToDos.filter((item) => item.isDone)}
-            setToDos={setToDos}
-            handleDone={handleDone}
-            handleDelete={handleDelete}
-          />
+            <h1>Complete</h1>
+            <DisplayItems
+              ToDos={ToDos.filter((item) => item.isDone).sort(sortByPriority)}
+              setToDos={setToDos}
+              handleDone={handleDone}
+              handleDelete={handleDelete}
+            />
           </>
         )}
         <div id="clearBtnDiv">
