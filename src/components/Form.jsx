@@ -45,11 +45,13 @@ const Form = ({setToDos, toggleSortOrder}) => {
   +
   </span></button>
 
+   <div className="selections">
   <label htmlFor="priority" className="priotylabel">Which priority shown on top:</label>
   <select id="priority" name="priority" onChange={toggleSortOrder}>
     <option value="high">High</option>
     <option value="low">Low</option>
   </select>
+  </div> 
 
 </div>
 

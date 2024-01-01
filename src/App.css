@@ -335,10 +335,15 @@ span.inactiveClass {
   opacity: 0;
 }
 
-.priotylabel {
+.selections {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-left: 1rem;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.priotylabel {
   font-size: 0.75rem;
   color: rgb(66, 66, 66);
 }
