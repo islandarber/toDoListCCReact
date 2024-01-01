@@ -64,7 +64,7 @@ function App() {
     <>
       <div className="container">
         <h1>Get your Stuff together List 📝</h1>
-        <Form setToDos={setToDos} handleClear={handleClear} />
+        <Form setToDos={setToDos} handleClear={handleClear} toggleSortOrder={toggleSortOrder} />
         <h1>Incomplete</h1>
         <DisplayItems
           ToDos={ToDos.filter((item) => !item.isDone).sort(sortByPriority)}

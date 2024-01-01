@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css'
 import { useState } from 'react'
 
-const Form = ({setToDos}) => {
+const Form = ({setToDos, toggleSortOrder}) => {
 
   const [priority, setPriority] = useState("");
   const handleChange = (e) => { 
@@ -44,6 +44,12 @@ const Form = ({setToDos}) => {
 <button id='addBtn' type="submit"><span className="material-symbols-outlined">
   +
   </span></button>
+
+  <label htmlFor="priority" className="priotylabel">Which priority shown on top:</label>
+  <select id="priority" name="priority" onChange={toggleSortOrder}>
+    <option value="high">High</option>
+    <option value="low">Low</option>
+  </select>
 
 </div>
 

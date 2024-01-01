@@ -335,6 +335,24 @@ span.inactiveClass {
   opacity: 0;
 }
 
+.priotylabel {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  font-size: 0.75rem;
+  color: rgb(66, 66, 66);
+}
+
+#priority {
+  height: 50px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 5px #777a7e;
+  border-radius: 1rem;
+  border-style: none;
+  font-size: 0.7rem;
+  color: rgb(0, 0, 0);
+}
+
 /* RESPONSIVE DESIGN QUERIES */
 
 @media only screen and (max-width: 600px) {
