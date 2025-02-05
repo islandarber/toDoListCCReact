@@ -1,9 +1,9 @@
 body {
   background-color: #ebebf9;
   opacity: 0.8;
-  background-image:  linear-gradient(#e1e1ff 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(90deg, #e1e1ff 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(#e1e1ff 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(90deg, #e1e1ff 1.4000000000000001px, #ebebf9 1.4000000000000001px);
+  background-image: linear-gradient(#e1e1ff 2.8px, transparent 2.8px), linear-gradient(90deg, #e1e1ff 2.8px, transparent 2.8px), linear-gradient(#e1e1ff 1.4px, transparent 1.4px), linear-gradient(90deg, #e1e1ff 1.4px, #ebebf9 1.4px);
   background-size: 70px 70px, 70px 70px, 14px 14px, 14px 14px;
-  background-position: -2.8000000000000003px -2.8000000000000003px, -2.8000000000000003px -2.8000000000000003px, -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px;    
+  background-position: -2.8px -2.8px, -2.8px -2.8px, -1.4px -1.4px, -1.4px -1.4px;    
   font-family: 'Schoolbell', cursive;
   font-size: 16px;
   font-weight: 400;
@@ -20,17 +20,12 @@ h1 {
 }
 
 .material-symbols-outlined {
-font-variation-settings:
-'FILL' 0,
-'wght' 400,
-'GRAD' 0,
-'opsz' 24
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 /* CONTAINER FOR ALL */
 .container {
   box-shadow: 0 0 5px #34506c;
-  width: 100%;
   max-width: 80%;
   margin: 3rem auto;
   padding: 1rem 2rem;    
@@ -44,26 +39,21 @@ font-variation-settings:
 
 /* FORM FOR SUBMITTING NEW TASK */
 form {
-display: flex;
-width: 100%;
-gap: 10px;
-justify-content: flex-start;
-align-items: stretch;
-}
-
-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 60%;
+  align-items: center;
+  width: 100%;
   padding: 0;
   margin: 0;
-  padding-left: 2rem;
 }
 
 #formDiv {
   display: flex;
-  width:100%;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
 }
 
 #addBtn {
@@ -78,23 +68,22 @@ form {
   color: rgb(136, 136, 136);
 }
 
-
-#clearBtnDiv {  
+#clearBtnDiv {
   display: flex;
   justify-content: center;
   width: 50%;
   margin: 2rem auto;
 }
 
-.placeholder { 
-  width: 100%;
-  height: auto;
-  margin: 15px 0;
+.placeholder {
+  align-self: center;
+  width: 50%;
   border-radius: 1rem;
   border-style: none;
   background-color: #fff;
   font-family: 'Schoolbell', cursive;
   text-align: center;
+  font-size: 0.7rem;
 }
 
 .low__prior {
@@ -111,13 +100,14 @@ form {
 }
 
 form button {
+  align-self: center;
+  width: 50px;
   padding: 0.3rem;
   margin: 15px 0;
   border-style: none;    
   background: none;
   cursor: pointer;
 }
-
 
 /* THE MAIN TASK DIV */
 .taskDiv {
@@ -130,21 +120,16 @@ form button {
   background-color: #d2d2d2;
   max-width: 50%;
   min-width: 50%;
-
   animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
   opacity: 0;
   transform: rotateX(-90deg);
   transform-origin: top center;
-
   transition: 0.5s;
 }
 
 .taskDiv:hover { 
   background-color: #bdbbbb;
-
 }
-
-
 
 .doneTask {
   padding: 1rem 1rem;
@@ -157,12 +142,10 @@ form button {
   max-width: 80%;
   min-width: 80%;
   height: 33px;
-
   animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
   opacity: 0;
   transform: rotateX(-90deg);
   transform-origin: top center;
-
   transition: 0.5s;
 }
 
@@ -175,7 +158,7 @@ form button {
 }
 
 .doneBtn {
-font-size: 2rem;
+  font-size: 2rem;
 }
 
 .tasks {
@@ -187,19 +170,21 @@ font-size: 2rem;
 }
 
 .radio_buttons {
+  align-self: center;
   display: flex;
   font-size: 0.75rem;
 }
+
 .radio_buttons label {
   display: flex;
   align-items: center;
   margin-right: 1rem;
 }
-    
+
 @keyframes show {
   100% {
-      opacity: 1;
-      transform: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -217,7 +202,6 @@ font-size: 2rem;
 #clearBtn:hover, #hideBtn:hover {
   background-color: rgb(161, 159, 159);
 }
-
 
 /* DIVS FOR CHECKBOX CONTROLS */
 .taskCheckboxDiv {
@@ -238,7 +222,6 @@ font-size: 2rem;
 span.inactiveClass {
   display: none;
 }
-
 
 .taskDiv h4 { 
   width: 100%;
@@ -324,7 +307,6 @@ span.inactiveClass {
   margin-top: 0;
 }
 
-
 /* THE DONE CLASS */
 .done {
   text-decoration: line-through;
@@ -359,56 +341,22 @@ span.inactiveClass {
 }
 
 /* RESPONSIVE DESIGN QUERIES */
-
 @media only screen and (max-width: 600px) {
   #taskSections {
-      flex-direction: column;
-      width: 100%;
+    flex-direction: column;
+    width: 100%;
   }
 
   #toDoItemsDiv, #completedItemsDiv {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      margin-top: 2rem;
+    width: 100%;
   }
 
-  #toDoItemsDiv {
-      margin-top: 0rem;
+  .container {
+    max-width: 90%;
   }
-
-  h2 {
-      font-size: 20rem;
-  }
-
-  .myListItems, .myCompletedItems {
-      align-items: center;
-      justify-content: center;
-  }
-
-  .myCompletedItems {
-      margin-bottom: 4rem;
-  }
-  
 
   .taskDiv {
-      width: auto;
+    max-width: 100%;
+    width: 100%;
   }
-
-  form {
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
-      justify-content: stretch;
-  }
-
-  #formDiv {
-      width: 100%;
-      padding-left: 0;
-  }
-
-  #hideBtn {
-      margin-right: 0;
-  }
-
 }
